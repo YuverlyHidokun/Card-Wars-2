@@ -1,5 +1,4 @@
 import pygame
-import os
 
 class Card:
     def __init__(self, nombre, elemento, poder, imagen):
@@ -12,10 +11,11 @@ class Card:
 
     def cargar_imagen(self, path):
         try:
-            return pygame.image.load(path).convert_alpha()
+            imagen = pygame.image.load(path).convert_alpha()
+            return imagen
         except:
             # Placeholder gris si no se encuentra imagen
-            surf = pygame.Surface((80, 120))
+            surf = pygame.Surface((80, 120))  # Tamaño de la carta
             surf.fill((180, 180, 180))
             pygame.draw.rect(surf, (0, 0, 0), surf.get_rect(), 2)
             return surf
